@@ -1,7 +1,6 @@
-.tfstate
-.tfstate.backup
+*.tfstate
+*.tfstate.*
 public_ips.txt
-
 
 .terraform/**
 
