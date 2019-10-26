@@ -1,0 +1,57 @@
+[
+  {
+    "name": "${container_name}",
+    "image": "${app_image}",
+    "cpu": ${fargate_cpu_app},
+  "memory": ${fargate_memory_app},
+  "networkMode": "awsvpc",
+  "logConfiguration": {
+  "logDriver": "awslogs",
+  "options": {
+    "awslogs-group": "/ecs/${app_name}",
+    "awslogs-region": "${aws_region}",
+    "awslogs-stream-prefix": "ecs"
+  }
+},
+  "portMappings": [
+  {
+    "containerPort": ${app_port},
+  "hostPort": ${app_port}
+}
+],
+  "environment": [
+  {
+    "name": "NODE_ENV",
+    "value": "${env}"
+  }
+]
+  },
+  {
+    "name": "${db_container_name}",
+    "image": "${db_image}",
+    "cpu": ${fargate_cpu_db},
+  "memory": ${fargate_memory_db},
+  "networkMode": "awsvpc",
+  "logConfiguration": {
+  "logDriver": "awslogs",
+  "options": {
+    "awslogs-group": "/ecs/${db_name}",
+    "awslogs-region": "${aws_region}",
+    "awslogs-stream-prefix": "ecs"
+  }
+},
+  "portMappings": [
+  {
+    "containerPort": ${db_port},
+  "hostPort": ${db_port}
+}
+],
+  "environment": [
+  {
+    "name": "NODE_ENV",
+    "value": "${env}"
+  }
+]
+  }
+
+]
