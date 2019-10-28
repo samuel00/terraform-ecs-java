@@ -35,6 +35,6 @@ resource "aws_alb_listener" "this" {
 
 resource "null_resource" "ips_publico" {
   provisioner "local-exec" {
-    command = "echo ${aws_alb.this.dns_name}:8080/transferencia-eletronica-extranet-ui >> public_ips.txt"
+    command = "echo ${aws_alb.this.dns_name}:8080/transferencia-eletronica-extranet-ui >> link_app.txt"
   }
 }

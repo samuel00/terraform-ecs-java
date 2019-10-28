@@ -1,6 +1,6 @@
 *.tfstate
 *.tfstate.*
-public_ips.txt
+link_app.txt
 
 .terraform/**
 
